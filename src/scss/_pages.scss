@@ -1,0 +1,27 @@
+//
+// Not Found
+// 
+.notfound {
+	text-align: center;
+}
+
+.notfound__title {
+	margin-bottom: 12px;
+}
+
+.notfound__text {
+	margin: 0 0 24px 0;
+}
+
+.notfound__link {
+	display: inline-block;
+	padding: 8px;
+	border-radius: 4px;
+	background-color: blue;
+	text-decoration: none;
+	color: #fff;
+
+	&:hover {
+		opacity: .7;
+	}
+}
