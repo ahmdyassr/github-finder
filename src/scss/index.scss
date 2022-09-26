@@ -5,6 +5,7 @@
 }
 
 body {
+	position: relative;
 	font-family: sans-serif;
 	background-color: #1F1F1F;
 	color: rgb(188, 188, 188);
@@ -151,4 +152,27 @@ body {
 	cursor: pointer;
 	font-size: 16px;
 	text-transform: uppercase;
+}
+
+//
+// Alert
+// 
+
+.alert {
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	max-width: 400px;
+	padding: 16px 32px 16px 16px;
+	border-radius: 8px;
+	background-color: rgb(188, 188, 188);
+	color: rgb(70, 70, 70);
+}
+
+.alert__type {
+	margin: 0 0 8px 0;
+}
+
+.alert__message {
+	margin: 0;
 }
