@@ -1,25 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { BeatLoader } from 'react-spinners'
+import { GithubContext } from '../context/github/GitHubContext'
+import UserItem from './UserItem'
 
 const UserResults = () => {
-	const [isLoading, setIsLoading] = useState(true)
-	const [users, setUsers] = useState([])
+	const { users, isLoading, fetchUsers } = useContext(GithubContext)
 
 	useEffect(() => {
 		fetchUsers()
 	}, [])
-
-	const fetchUsers = async () => {
-		const response = await fetch(`${process.env.GITHUB_URL}/users`, {
-			headers: {
-				Authorization: `token ${process.env.GITHUB_TOKEN}`
-			}			
-		})
-
-		const data = await response.json()
-		setUsers(data)
-		setIsLoading(false)
-	}
 
 	if ( !isLoading ) {
 		return (
@@ -27,9 +16,7 @@ const UserResults = () => {
 				{
 					users.map((user) => {
 						return (
-							<div className="user" key={user.id}>
-								<p className="user__name">{user.login}</p>
-							</div>
+							<UserItem key={user.id} user={user} />
 						)
 					})
 				}
