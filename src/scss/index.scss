@@ -52,5 +52,23 @@ body {
 }
 
 //
-// Pages
+// User Card
 // 
+.users {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.user {
+	width: 20%;
+	margin-bottom: 8px;
+	padding: 16px;
+	border-radius: 8px;
+	background-color: #343434;
+}
+
+.user__name {
+	margin: 0;
+}
