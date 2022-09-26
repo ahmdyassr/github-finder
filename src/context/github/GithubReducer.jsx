@@ -7,6 +7,18 @@ const githubReducer = (state, action) => {
 				isLoading: false
 			}
 		}
+		case 'SET_LOADING': {
+			return {
+				...state,
+				isLoading: true
+			}
+		}
+		case 'CLEAR_SEARCH': {
+			return {
+				users: [],
+				isLoading: false
+			}
+		}
 		default: {
 			return state
 		}
