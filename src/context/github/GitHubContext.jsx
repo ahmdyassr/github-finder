@@ -3,6 +3,7 @@ import githubReducer from './GithubReducer'
 
 const initialState = {
 	users: [],
+	user: {},
 	isLoading: false
 }
 
@@ -44,12 +45,36 @@ const GithubProvider = ({ children }) => {
 		})
 	}
 
+	// Get A single user
+	const getUser = async (login) => {
+		setLoading()
+		
+		const response = await fetch(`${process.env.GITHUB_URL}/users/${login}`, {
+			headers: {
+				Authorization: `token ${process.env.GITHUB_TOKEN}`
+			}			
+		})
+
+		if ( response.status === 404 ){
+			window.location = '/notfound'
+		} else {
+			const data = await response.json()
+			dispatch({
+				type: 'GET_USER',
+				payload: data
+			})
+		}
+		
+	}
+
 	return (
 		<GithubContext.Provider value={{
 			users: state.users,
 			isLoading: state.isLoading,
+			user: state.user,
 			searchUsers,
-			clearUsers
+			clearUsers,
+			getUser
 		}}>
 			{ children }
 		</GithubContext.Provider>

@@ -10,7 +10,7 @@ const UserItem = ({ user }) => {
 			</div>
 			<div className="user__meta">
 				<p className="user__name">{login}</p>
-				<Link className="user__link" to={`/users/${login}`}>Visit Profile</Link>
+				<Link className="user__link" to={`/user/${login}`}>Visit Profile</Link>
 			</div>
 		</div>
 	)
